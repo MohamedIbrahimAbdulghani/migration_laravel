@@ -11,7 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() // this function make when insert or to added data
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
@@ -26,7 +26,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down() // this function make when delete or drop data
     {
         Schema::dropIfExists('posts');
     }
