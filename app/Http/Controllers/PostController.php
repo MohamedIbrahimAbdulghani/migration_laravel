@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -13,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $my_posts = DB::table("posts")->get();
+        return view("posts/show_posts", compact("my_posts"));
     }
 
     /**
@@ -23,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("layouts/login");
+        return view("posts/create_posts");
     }
 
     /**
@@ -34,7 +36,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table("posts")->insert([
+            // الموجود في الداتابيز => f اللي جاي من الفورم
+            "title"=>$request->title,
+            // "title"=>$request["title"],
+            "body"=>$request["body"]
+        ]);
+        header("Refresh:0.1;url=create");
     }
 
     /**
@@ -45,7 +53,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -56,7 +64,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $my_post = DB::table("posts")->where("id", $id)->first();
+        return view("posts/edit_posts", compact("my_post"));
     }
 
     /**

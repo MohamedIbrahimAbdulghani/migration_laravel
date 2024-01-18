@@ -11,12 +11,12 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up() // this function make when insert or to added data
+    public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string("title", 255);
-            $table->boolean("check")->default(0);
+            $table->string("title");
+            $table->text("body");
             $table->timestamps();
         });
     }
@@ -26,7 +26,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down() // this function make when delete or drop data
+    public function down()
     {
         Schema::dropIfExists('posts');
     }
