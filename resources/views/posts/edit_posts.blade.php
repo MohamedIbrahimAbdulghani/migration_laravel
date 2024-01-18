@@ -18,17 +18,17 @@
 </style>
 <body>
     <div class="container">
-        <form class="border p-3 mt-5" action="{{route('posts.store')}}" method="post">
+        <form class="border p-3 mt-5" action="{{route('posts.update', $my_post->id)}}" method="post">
             @csrf
-            <h1 class="text-center">Edit Post</h1>
+            @method("PUT")
+            <h1 class="text-center">Edit Post: {{$my_post->title}}</h1>
             <div class="mb-3">
                 <input type="text" class="form-control" value="{{$my_post->title}}" name="title">
             </div>
             <div class="mb-3">
                 <input type="text" class="form-control" value="{{$my_post->body}}" name="body">
             </div>
-            <button type="submit" class="btn btn-primary m-auto d-block mt-4">Added</button>
-            <a href="/posts" >Show All Posts</a>
+            <input type="submit" value="Update" class="btn btn-success m-auto d-table">
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

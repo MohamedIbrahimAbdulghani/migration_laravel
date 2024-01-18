@@ -39,7 +39,7 @@
                 <td>{{$post->body}}</td>
                 <td>
                     <a href="{{route('posts.edit', $post->id)}}" class="btn btn-secondary" role="button">Edit</a>
-                    <a href="" class="btn btn-danger" role="button">Delete</a>
+                    <a href="{{route('posts.delete', $post->id)}}" class="btn btn-danger" role="button">Delete</a>
                 </td>
                 </tr>
             @endforeach

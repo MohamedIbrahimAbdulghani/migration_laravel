@@ -20,8 +20,13 @@ Route::get('/', function () {
 // Route::resource("posts", PostController::class);
 // Route::post("posts/store", [PostController::class, "store"])->name("posts.store");
 
-Route::get("posts", [PostController::class, "index"])->name("posts");
-Route::get("posts/create", [PostController::class, "create"])->name("posts.create");
-Route::post("posts/store", [PostController::class, "store"])->name("posts.store");
-Route::get("posts/edit/{id}", [PostController::class, "edit"])->name("posts.edit");
-Route::get("posts/delete/{id}", [PostController::class, "delete"])->name("posts.delete");
+
+Route::controller(PostController::class)->group(function() {
+    Route::get("posts", "index")->name("posts");
+    Route::get("posts/create", "create")->name("posts.create");
+    Route::post("posts/store", "store")->name("posts.store");
+    Route::get("posts/edit/{id}", "edit")->name("posts.edit");
+    Route::get("posts/delete/{id}", "delete")->name("posts.delete");
+    Route::PUT("posts/update/{id}", "update")->name("posts.update");
+    Route::get("posts/delete/{id}", "destroy")->name("posts.delete");
+});
