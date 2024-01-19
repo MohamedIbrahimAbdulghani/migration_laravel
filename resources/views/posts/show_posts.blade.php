@@ -8,6 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <style>
+    h1 {
+        color: #6c757d;
+    }
     a {
         margin: auto;
         display: block;
@@ -15,6 +18,8 @@
         text-decoration: none;
         font-size: 20px;
         font-weight: bold;
+        color: #6c757d;
+        margin-bottom: 15px;
     }
 </style>
 <body>
